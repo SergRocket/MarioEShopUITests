@@ -1,0 +1,8 @@
+This is the list of the tests that I`m planning to implement in this frmw
+1. Creation personal account
+2. Autorization into personal account
+3. Check the navigation bar menu redirects user to proper page
+4. Check thet filter for type is working as expected
+5. Check that filter for season is working as expected
+6. Check pagination and check drop down menu "item per page"
+7. Check story of adding new item to the cart and proceed to the payment
