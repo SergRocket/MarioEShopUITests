@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import static Base.BaseTest.getWebDriver;
+
 public class BaseListener implements IInvokedMethodListener, ITestListener {
     @Override
     public void onTestFailure(ITestResult result){
