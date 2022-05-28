@@ -1,12 +1,12 @@
 package Utils;
 
 import Base.BaseTest;
+import org.apache.logging.log4j.LogManager;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.Logger;
 
 public class Reporter {
-    private static final Logger LOGGER = LogManager.getLogManager().getLogger(Reporter.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(Reporter.class.getName());
 
     public static void log(String string){
         printMessage(string);

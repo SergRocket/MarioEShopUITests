@@ -1,8 +1,8 @@
 package Base;
 
-import Utils.AppConfig;
-import Utils.ExtentReportManager;
-import Utils.Reporter;
+import TestData.TestRailAPISetup;
+import TestData.TestRailConfigAnnotation;
+import Utils.*;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -88,7 +88,7 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void afterMethodSetup(ITestResult result){
+    public void afterMethodSetup(ITestResult result) throws IOException {
         if(result.getStatus() == ITestResult.FAILURE){
             test.get().fail(result.getThrowable());
             String exeptionMessage = Arrays.toString(result.getThrowable().getStackTrace());
@@ -102,7 +102,7 @@ public class BaseTest {
             test.get().skip(result.getThrowable());
         else
             test.get().pass("Test has passed");
-            ExtentReportManager.getInstanceOfExtentReports(suiteName).flush();
+            ExtentReportManager.getiInstanceOfExtentReports(suiteName).flush();
             Reporter.log("Begin stopping tests");
     }
 
@@ -157,7 +157,7 @@ public class BaseTest {
                 data.put("comment", "Passed");
             }
             try {
-                TestRailAPISetup.getinstance().sendPost("add_result_for_case/" + /*testRailRunId*/  "/"
+                TestRailAPISetup.getClientInstance().sendPost("add_result_for_case/" + /*testRailRunId*/  "/"
                         + testCaseId, data);
             } catch (IOException | APIExeption e){
                 e.printStackTrace();

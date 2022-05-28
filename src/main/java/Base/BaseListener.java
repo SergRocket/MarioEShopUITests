@@ -1,5 +1,6 @@
 package Base;
 
+import Utils.Reporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,8 +13,6 @@ import org.openqa.selenium.remote.Augmenter;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.Reporter;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -28,8 +27,9 @@ import static Base.BaseTest.getWebDriver;
 public class BaseListener implements IInvokedMethodListener, ITestListener {
     @Override
     public void onTestFailure(ITestResult result){
-        Reporter.logFail("Test has failed");
-        Reporter.logFail(getJSConsoleError());
+        Reporter.logOnFail("Test has failed");
+        Reporter.logOnFail(getJSConsoleError());
+
     }
 
     public String getJSConsoleError(){
