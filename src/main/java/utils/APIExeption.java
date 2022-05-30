@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 public class APIExeption extends Exception{
     public APIExeption(String message){

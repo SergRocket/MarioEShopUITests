@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;

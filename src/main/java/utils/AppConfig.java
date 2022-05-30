@@ -1,6 +1,7 @@
-package Utils;
+package utils;
 
 public class AppConfig {
+
     public static final String startURL = "https://www.mariomuzi.com.ua/ua/";
     public static final String login = "serg.lishko1988@gmail.com";
     public static final String password = "3107RS777";
@@ -11,4 +12,5 @@ public class AppConfig {
             "    ";
     public static final String shopLogoName = "обираючи нас - ви обираєте краще!";
     public static final String textInElements = "укррусвашакорзинановинкимагазину";
+
 }

@@ -1,8 +1,8 @@
-package Base;
+package base;
 
-import TestData.TestRailAPISetup;
-import TestData.TestRailConfigAnnotation;
-import Utils.*;
+import test_data.TestRailAPISetup;
+import test_data.TestRailConfigAnnotation;
+import utils.*;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -97,7 +97,7 @@ public class BaseTest {
             String pathsSecond = takeScreenShot("Failure ScreenShot", result.getMethod().getMethodName());
             test.get().fail("<b><font color=red>" + "Screenshot of failure" + "</font></b>",
                     MediaEntityBuilder.createScreenCaptureFromPath(pathsSecond).build());
-            Utils.Reporter.logOnFail("Test has failed");
+            utils.Reporter.logOnFail("Test has failed");
         } else if(result.getStatus() == ITestResult.SKIP)
             test.get().skip(result.getThrowable());
         else

@@ -1,17 +1,11 @@
-package PageObjects;
+package page_objects;
 
-import Base.BasePage;
-import Utils.AppConfig;
-import Utils.Reporter;
+import base.BasePage;
+import utils.Reporter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 

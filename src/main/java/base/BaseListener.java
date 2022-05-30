@@ -1,6 +1,6 @@
-package Base;
+package base;
 
-import Utils.Reporter;
+import utils.Reporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -19,10 +19,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 import java.util.TimeZone;
 
-import static Base.BaseTest.getWebDriver;
+import static base.BaseTest.getWebDriver;
 
 public class BaseListener implements IInvokedMethodListener, ITestListener {
     @Override

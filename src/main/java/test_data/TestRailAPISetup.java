@@ -1,7 +1,6 @@
-package TestData;
+package test_data;
 
-import Utils.APIClient;
-import Utils.APIExeption;
+import utils.APIClient;
 
 public class TestRailAPISetup {
 

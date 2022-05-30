@@ -1,8 +1,6 @@
-import Base.BaseTest;
-import PageObjects.MainPage;
-import PageObjects.RandomCategoryPage;
-import TestData.TestRailConfigAnnotation;
-import Utils.AppConfig;
+import base.BaseTest;
+import page_objects.MainPage;
+import test_data.TestRailConfigAnnotation;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -14,5 +12,6 @@ public class MainPageTests extends BaseTest {
         MainPage mainPage = new MainPage();
         mainPage.selectRandomCategory();
         softAssert.assertTrue(mainPage.isCompanyLogoVisib());
+
     }
 }

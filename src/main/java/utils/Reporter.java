@@ -1,6 +1,6 @@
-package Utils;
+package utils;
 
-import Base.BaseTest;
+import base.BaseTest;
 import org.apache.logging.log4j.LogManager;
 
 import org.apache.logging.log4j.Logger;

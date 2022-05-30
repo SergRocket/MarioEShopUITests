@@ -1,7 +1,7 @@
-package Base;
+package base;
 
-import Utils.AppConfig;
-import Utils.Reporter;
+import utils.AppConfig;
+import utils.Reporter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;

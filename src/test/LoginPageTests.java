@@ -1,7 +1,7 @@
-import Base.BaseTest;
-import PageObjects.MainPage;
-import TestData.TestRailConfigAnnotation;
-import Utils.AppConfig;
+import base.BaseTest;
+import page_objects.MainPage;
+import test_data.TestRailConfigAnnotation;
+import utils.AppConfig;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -29,4 +29,5 @@ public class LoginPageTests extends BaseTest {
         (str -> str.contains(AppConfig.textInElements)).allMatch(s ->s.length()>3));
         return new MainPage();
     }
+
 }
