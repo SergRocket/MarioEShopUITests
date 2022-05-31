@@ -1,5 +1,6 @@
 package Base;
 
+import Utils.AppConfig;
 import Utils.Reporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -7,14 +8,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.security.mscapi.CPublicKey;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BasePage {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     private WebDriverWait webDriverWaitLonger;
     private WebDriverWait webDriverWaitShorter;
     private FluentWait<WebDriver> fluentWait;
@@ -60,5 +61,36 @@ public class BasePage {
         String givenValue = findwebElement(element).getAttribute(attribute);
         Reporter.log("The "+attribute+" from "+element+" is "+givenValue);
         return givenValue;
+    }
+
+    public void validLog() {
+        Reporter.log("Clicking on the login button after the page is loaded ");
+        driver.findElement(By.cssSelector("div.enter-block.enter-block-last>a")).click();
+        Reporter.log("Sending valid userName to the input field ");
+        driver.findElement(By.id("usernameLogin")).sendKeys(AppConfig.login);
+        Reporter.log("Sending valid password to the input field ");
+        driver.findElement(By.id("loginPasswordLabel")).sendKeys(AppConfig.password);
+        Reporter.log("Clicking the login button ");
+        driver.findElement(By.cssSelector("form.loginLoginForm>div:nth-child(7)>button")).click();
+    }
+
+    public List<WebElement> findElements(By element){
+        Reporter.log("Getting list of web elements " + element);
+        return driver.findElements(element);}
+
+    public boolean isDysplayed(By element){
+        Reporter.log("Checking if element is shown ");
+        if (findElements(element).size() >0) {
+            return true;
+        } else
+            return false;
+    }
+
+
+
+    public boolean containsUrl (String str){
+        Reporter.log("Checking that url contains " + str);
+        boolean currentUrl = driver.getCurrentUrl().contains(str);
+        return currentUrl;
     }
 }

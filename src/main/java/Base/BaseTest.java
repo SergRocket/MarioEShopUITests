@@ -68,7 +68,7 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeTest
-    public void setBrowserAndEnv(@Optional("opera")String browser){
+    public void setBrowserAndEnv(@Optional("chrome")String browser){
         browserName = browser;
         driver = createDriver(browser);
         driver.get(AppConfig.startURL);
