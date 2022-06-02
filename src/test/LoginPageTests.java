@@ -20,12 +20,13 @@ public class LoginPageTests extends BaseTest {
 
     @TestRailConfigAnnotation(id="2")
     @Test(testName = "NavMenuTest",priority=2)
-    public void navMenu() {
+    public MainPage navMenu() {
         SoftAssert softAssert = new SoftAssert();
         MainPage mainPage = new MainPage();
-        //softAssert.assertTrue(mainPage.isCompanyLogoVisible());
-        mainPage.openMainPageAfterLogin();
         softAssert.assertTrue(mainPage.isCompanyLogoVisible());
-        softAssert.assertTrue(mainPage.isAllWebElementsAreVisible());
+        mainPage.openMainPageAfterLogin();
+        softAssert.assertTrue(mainPage.isAllWebElementsAreVisible().stream().filter
+        (str -> str.contains(AppConfig.textInElements)).allMatch(s ->s.length()>3));
+        return new MainPage();
     }
 }

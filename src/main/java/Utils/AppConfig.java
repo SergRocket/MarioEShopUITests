@@ -10,5 +10,5 @@ public class AppConfig {
     public static final String infoMessageAfterInvalidSearchQuery = " Я перевірила кожен куточок сайту, але ваш запит\n" +
             "    ";
     public static final String shopLogoName = "обираючи нас - ви обираєте краще!";
-
+    public static final String textInElements = "укррусвашакорзинановинкимагазину";
 }
