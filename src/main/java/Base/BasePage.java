@@ -2,10 +2,7 @@ package Base;
 
 import Utils.AppConfig;
 import Utils.Reporter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -86,6 +83,28 @@ public class BasePage {
             return false;
     }
 
+    public void scrollWithJSToElement(WebElement element){
+        Reporter.log("Scrolling to element with JS");
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public List<String> getTextFromListOfElements(By element){
+        Reporter.log("Getting text from elements");
+        List<String> stringList = new ArrayList<>();
+        List<WebElement> elements = findElements(element);
+        for (WebElement elemt : elements){
+            stringList.add(elemt.getText());
+        }
+        return stringList;
+    }
+
+  /*  public String getElementAttrValue(By element, String attribute){
+        Reporter.log("Extracting set value from element");
+       // List<String> givenValue = clickWebElement(element).getAttribute(attribute);
+        Reporter.log("The " + attribute + " from " + element + " is " + givenValue);
+      //  return givenValue;
+    }*/
 
 
     public boolean containsUrl (String str){

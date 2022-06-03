@@ -16,7 +16,6 @@ public class MainPageTests extends BaseTest {
         RandomCategoryPage randomCategoryPage = new RandomCategoryPage();
         mainPage.selectRandomCategory();
         softAssert.assertTrue(mainPage.isCompanyLogoVisib());
-
-
+        
     }
 }
