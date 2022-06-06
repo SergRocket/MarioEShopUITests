@@ -69,7 +69,7 @@ public class MainPage extends BasePage {
 
     public RandomCategoryPage selectRandomCategory(){
         Random random = new Random();
-        int randomCat = random.nextInt(1 - 6) + 1;
+        int randomCat = random.nextInt(2 - 1) + 1;
         findwebElement(By.cssSelector(" ul.nav-navigation>li:nth-child("+randomCat+")")).click();
         return new RandomCategoryPage();
     }

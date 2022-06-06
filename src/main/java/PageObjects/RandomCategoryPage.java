@@ -5,7 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class RandomCategoryPage extends BasePage {
     public By logomainPage = new By.ByCssSelector("div.logo>img");
@@ -23,34 +26,26 @@ public class RandomCategoryPage extends BasePage {
         return elemt;
     }
 
-    public List<String> getAttrFromCard(){
-        driver.findElements(productsDescrArticle)
-    }
-
-   // WebElement correct = emp.stream().filter((element) -> element.getText().contains(correctName)).findFirst().orElse(null);
-   private List< String > attrValues(By loc, String name) {
-       return getValues(loc, e -> e.getAttribute(name));
-   }
-    private List< String > getValues(By loc, Function<WebElement,String > pred) {
-
-        List< WebElement > elements = driver.findElements(loc);
-
-        List< String > values = elements.stream().map(pred)
-                .collect(Collectors.toList());
-
-        return values;
-
-
-    }
-    List<String> allProductNames = new ArrayList<>();
-
-    // Locating all product names at home page
-    /*
-     * We do not need to store list of web elements as well. We can get the stream of found web elements
-     * and apply aggregate function forEach(). Logic behind forEach is to get the text of each web element
-     * and add to list. We are using lambda expression inside forEach.
-     */
-		driver.findElements(By.xpath("//ul[contains(@class,'active')]//a[@class='product-name']"))
+    public List< String > getValues() {
+        List<String> allProductData = new ArrayList<>();
+        driver.findElements(productsBlock)
                 .stream()
-		.forEach(product -> allProductNames.add(product.getText()));
+                .forEach(product -> allProductData.add(product.getText()));
+        System.out.println("dfdf");
+        return allProductData;
+    }
+
+    public void getValuesPrices() {
+        List<String> oldPrices = new ArrayList<>();
+        driver.findElements(productsOldPrices)
+                .stream()
+                .forEach(product -> oldPrices.add(product.getText()));
+        System.out.println("dfdf");
+        List<String> newPrices = new ArrayList<>();
+        driver.findElements(productsCurrentPrices)
+                .stream()
+                .forEach(product -> newPrices.add(product.getText()));
+        System.out.println("dfdf");
+
+    }
 }
