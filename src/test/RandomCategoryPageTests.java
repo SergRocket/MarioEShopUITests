@@ -35,6 +35,7 @@ public class RandomCategoryPageTests  extends BaseTest {
         softAssert.assertTrue(randomCategoryPage.getValues().stream().anyMatch(x->x.contains("Арт:")));
         softAssert.assertTrue(randomCategoryPage.getValues().stream().anyMatch(x->x.contains("грн")));
         softAssert.assertTrue(randomCategoryPage.getValuesPrices());
+        softAssert.assertTrue(randomCategoryPage.compareSizes());
         softAssert.assertAll();
     }
 

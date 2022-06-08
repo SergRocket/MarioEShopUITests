@@ -1,13 +1,12 @@
 package PageObjects;
 
 import Base.BasePage;
+import org.apache.commons.collections4.ListUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -50,25 +49,24 @@ public class RandomCategoryPage extends BasePage {
                 .stream()
                 .forEach(product -> newPrices.add(product.getText().replaceAll(" грн.","")));
         List<Integer> newPricesInteger = newPrices.stream().map(Integer::parseInt).collect(Collectors.toList());
-        System.out.println("dfdf");
         List<Boolean> equalityResult = IntStream.range(0, oldPricesInteger.size()).mapToObj(i -> oldPricesInteger.get(i) > newPricesInteger.get(i))
                 .collect(Collectors.toList());
         return equalityResult.stream().allMatch(x->x.equals(true));
     }
 
-    /*for (int i = 0; i < list1.size(); i++) {
-        for (int j = 0; j < list2.size(); j++) {
-            if (list2.get(j) < list1.get(i)) {
-                System.out.println("tune time not optimized");
-            }
-        }
-    }*/
-
-    public void compareOldNewPrices(){
-
+   public boolean compareSizes(){
+        List<String> sizes = new ArrayList<>();
+        driver.findElements(productsSizes)
+                .stream()
+                .forEach(product -> sizes.add(product.getText().replaceAll("Розміри: ","")));
+        List<String[]> separateSizesAsStrings = sizes.stream().map(x->x.split(", ")).collect(Collectors.toList());
+        List<Integer> listOfSizesConvertedToIntegers = separateSizesAsStrings.stream().flatMap(x -> Arrays.stream(x))
+                .map(Integer::parseInt).collect(Collectors.toList());
+        List<Boolean> equalityResult = IntStream.range(0, listOfSizesConvertedToIntegers.size()).mapToObj(i -> listOfSizesConvertedToIntegers.get(i) <= listOfSizesConvertedToIntegers.get(i))
+                .collect(Collectors.toList());
+        return equalityResult.stream().allMatch(x->x.equals(true));
     }
 
-    //List<String> filtered = oldPrices.stream().map(x->x.replaceAll("грн.","")).collect(Collectors.toList());
 
 
 }
