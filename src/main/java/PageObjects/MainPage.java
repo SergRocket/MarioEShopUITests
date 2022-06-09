@@ -34,6 +34,7 @@ public class MainPage extends BasePage {
 
 
     public boolean isCompanyLogoVisible() {
+        Reporter.log("Checking if logo is shown ");
         if (isDysplayed(logo)) {
             return true;
         } else
@@ -41,6 +42,7 @@ public class MainPage extends BasePage {
     }
 
     public boolean isCompanyLogoVisib(){
+        Reporter.log("Checking if logo is shown ");
         if (isDysplayed(logomainPage)) {
             return true;
         } else
@@ -48,6 +50,7 @@ public class MainPage extends BasePage {
     }
 
     public boolean isCongraIsVisible(){
+        Reporter.log("Checking if welcome msg is shown ");
         if(isDysplayed(congraImage)){
             return true;
         } else
@@ -55,11 +58,13 @@ public class MainPage extends BasePage {
     }
 
     public void openMainPageAfterLogin(){
+        Reporter.log("Checking if suc login is shown ");
         clickWebElement(logoBig);
         //clickWebElement(logo);
     }
 
     public List<String> isAllWebElementsAreVisible(){
+        Reporter.log("Checking if all main elements are shown ");
         List<String> elemtsTest = new ArrayList<>();
         elemtsTest.add(driver.findElement(langDropDown).getText().toLowerCase());
         elemtsTest.add(driver.findElement(shoppingCart).getText().toLowerCase());
@@ -68,6 +73,7 @@ public class MainPage extends BasePage {
     }
 
     public RandomCategoryPage selectRandomCategory(){
+        Reporter.log("Selecting random int to select random menu section ");
         Random random = new Random();
         int randomCat = random.nextInt(2 - 1) + 1;
         findwebElement(By.cssSelector(" ul.nav-navigation>li:nth-child("+randomCat+")")).click();

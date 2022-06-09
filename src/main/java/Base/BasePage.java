@@ -99,15 +99,7 @@ public class BasePage {
         return stringList;
     }
 
-  /*  public String getElementAttrValue(By element, String attribute){
-        Reporter.log("Extracting set value from element");
-       // List<String> givenValue = clickWebElement(element).getAttribute(attribute);
-        Reporter.log("The " + attribute + " from " + element + " is " + givenValue);
-      //  return givenValue;
-    }*/
-
-
-    public boolean containsUrl (String str){
+     public boolean containsUrl (String str){
         Reporter.log("Checking that url contains " + str);
         boolean currentUrl = driver.getCurrentUrl().contains(str);
         return currentUrl;

@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class LoginPageTests extends BaseTest {
-
+    @TestRailConfigAnnotation(id="1")
     @Test(testName = "LoginTest",priority=1)
     public void validLogin(){
         SoftAssert softAssert = new SoftAssert();
@@ -18,7 +18,7 @@ public class LoginPageTests extends BaseTest {
         softAssert.assertAll();
     }
 
-
+    @TestRailConfigAnnotation(id="2")
     @Test(testName = "NavMenuTest",priority=2)
     public MainPage navMenu() {
         SoftAssert softAssert = new SoftAssert();

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="testRailSuiteId" value="1"/>
+    <parameter name="PROJECT" value="1"/>
+    <test verbose="2" preserve-order="true" name="C:/Users/38096/IdeaProjects/MarioEShopUITests">
+
+      <classes>
+
+        <class name="LoginPageTests">
+            <methods>
+                <include name="validLogin">
+                </include>
+                <include name="navMenu">
+                 </include>
+            </methods>
+        </class>
+
+       <class name="MainPageTests">
+            <methods>
+               <include name="checkAllItemElements">
+              </include>
+            </methods>
+        </class>
+
+            <class name="RandomCategoryPageTests">
+                <methods>
+                    <include name="checkAllItemElements">
+                    </include>
+                    <include name="checkOldPriceBiggerToNewAndSizes">
+                    </include>
+                </methods>
+            </class>
+
+    </classes>
+    </test>
+</suite>

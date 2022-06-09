@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class RandomCategoryPageTests  extends BaseTest {
-
+    @TestRailConfigAnnotation(id="4")
     @Test(testName = "checkAllItemElements",priority=4)
     public void checkAllItemElements() {
         SoftAssert softAssert = new SoftAssert();
@@ -23,9 +23,9 @@ public class RandomCategoryPageTests  extends BaseTest {
         softAssert.assertAll();
     }
 
-
+    @TestRailConfigAnnotation(id="5")
     @Test(testName = "checkOldPriceBiggerToNew",priority=5)
-    public void checkOldPriceBiggerToNew() {
+    public void checkOldPriceBiggerToNewAndSizes() {
         SoftAssert softAssert = new SoftAssert();
         RandomCategoryPage randomCategoryPage = new RandomCategoryPage();
         randomCategoryPage.getValues();
