@@ -18,7 +18,7 @@ public class BasePage {
     private FluentWait<WebDriver> fluentWait;
 
 
-    public BasePage(){
+    public BasePage() {
         this.driver = BaseTest.getWebDriver();
         webDriverWaitLonger = new WebDriverWait(driver, Duration.ofSeconds(12));
         webDriverWaitShorter = new WebDriverWait(driver, Duration.ofSeconds(2));
@@ -26,37 +26,37 @@ public class BasePage {
                 .ignoring(NoSuchElementException.class);
     }
 
-    public WebElement findwebElement(By element){
+    public WebElement findwebElement(By element) {
         Reporter.log("Getting web element " + element);
         return driver.findElement(element);
     }
 
-    public List<WebElement> findWebElements(By element){
+    public List<WebElement> findWebElements(By element) {
         Reporter.log("Getting the list of web elements " + element);
         return driver.findElements(element);
     }
 
-    public void clickWebElement(By element){
+    public void clickWebElement(By element) {
         Reporter.log("Clicking on the web element " + element);
         findwebElement(element).click();
     }
 
-    public void clickWebElementByIndex(By elements, int webElementIndex){
+    public void clickWebElementByIndex(By elements, int webElementIndex) {
         Reporter.log("Clicking webElement by index " + webElementIndex + " from the list of webElements");
-        driver.findElements(elements).get(webElementIndex -1).click();
+        driver.findElements(elements).get(webElementIndex - 1).click();
     }
 
-    public String getWebElementText(By element){
+    public String getWebElementText(By element) {
         Reporter.log("Extracting webElement text ");
         String text = findwebElement(element).getText();
         Reporter.log("Element text is "+text);
         return text;
     }
 
-    public String getWebElementAttributeValue(By element, String attribute){
+    public String getWebElementAttributeValue(By element, String attribute) {
         Reporter.log("Extracting the value from the webElement");
         String givenValue = findwebElement(element).getAttribute(attribute);
-        Reporter.log("The "+attribute+" from "+element+" is "+givenValue);
+        Reporter.log("The " + attribute + " from " + element + " is " + givenValue);
         return givenValue;
     }
 
@@ -71,25 +71,23 @@ public class BasePage {
         driver.findElement(By.cssSelector("form.loginLoginForm>div:nth-child(7)>button")).click();
     }
 
-    public List<WebElement> findElements(By element){
+    public List<WebElement> findElements(By element) {
         Reporter.log("Getting list of web elements " + element);
-        return driver.findElements(element);}
-
-    public boolean isDysplayed(By element){
-        Reporter.log("Checking if element is shown ");
-        if (findElements(element).size() >0) {
-            return true;
-        } else
-            return false;
+        return driver.findElements(element);
     }
 
-    public void scrollWithJSToElement(WebElement element){
+    public boolean isDysplayed(By element) {
+        Reporter.log("Checking if element is shown ");
+        return findElements(element).size() > 0;
+    }
+
+    public void scrollWithJSToElement(WebElement element) {
         Reporter.log("Scrolling to element with JS");
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    public List<String> getTextFromListOfElements(By element){
+    public List<String> getTextFromListOfElements(By element) {
         Reporter.log("Getting text from elements");
         List<String> stringList = new ArrayList<>();
         List<WebElement> elements = findElements(element);
@@ -99,9 +97,8 @@ public class BasePage {
         return stringList;
     }
 
-     public boolean containsUrl (String str){
+     public boolean containsUrl (String str) {
         Reporter.log("Checking that url contains " + str);
-        boolean currentUrl = driver.getCurrentUrl().contains(str);
-        return currentUrl;
+         return driver.getCurrentUrl().contains(str);
     }
 }

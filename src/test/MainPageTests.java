@@ -1,6 +1,6 @@
 import base.BaseTest;
-import page_objects.MainPage;
-import test_data.TestRailConfigAnnotation;
+import page.objects.MainPage;
+import test.data.TestRailConfigAnnotation;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 

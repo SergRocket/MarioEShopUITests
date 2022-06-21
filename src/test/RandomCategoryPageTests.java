@@ -1,7 +1,7 @@
 import base.BaseTest;
-import page_objects.MainPage;
-import page_objects.RandomCategoryPage;
-import test_data.TestRailConfigAnnotation;
+import page.objects.MainPage;
+import page.objects.RandomCategoryPage;
+import test.data.TestRailConfigAnnotation;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 

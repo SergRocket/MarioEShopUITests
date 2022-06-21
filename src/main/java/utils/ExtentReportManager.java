@@ -11,17 +11,17 @@ import java.util.Date;
 public class ExtentReportManager {
     private static ExtentReports extentReports;
 
-    public static ExtentReports getiInstanceOfExtentReports(String suitename){
-        if(extentReports==null)
+    public static ExtentReports getiInstanceOfExtentReports(String suitename) {
+        if (extentReports == null)
             createInstanceOfReport(suitename);
         return extentReports;
     }
 
-    public static ExtentReports createInstanceOfReport(String suiteName){
+    public static ExtentReports createInstanceOfReport(String suiteName) {
         Date currentDate = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy_HHmmss");
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(
-                suiteName+"-"+simpleDateFormat.format(currentDate)+".html");
+                suiteName + "-" + simpleDateFormat.format(currentDate) + ".html");
         htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);
         htmlReporter.config().setReportName("Report for UI tests");
         htmlReporter.config().setChartVisibilityOnOpen(true);

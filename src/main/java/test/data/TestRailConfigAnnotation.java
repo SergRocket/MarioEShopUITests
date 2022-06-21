@@ -1,4 +1,4 @@
-package test_data;
+package test.data;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

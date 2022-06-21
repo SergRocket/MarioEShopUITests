@@ -1,7 +1,7 @@
 package utils;
 
-public class APIExeption extends Exception{
-    public APIExeption(String message){
+public class APIExeption extends Exception {
+    public APIExeption(String message) {
         super(message);
     }
 }

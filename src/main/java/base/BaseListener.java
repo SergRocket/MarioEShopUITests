@@ -25,13 +25,13 @@ import static base.BaseTest.getWebDriver;
 
 public class BaseListener implements IInvokedMethodListener, ITestListener {
     @Override
-    public void onTestFailure(ITestResult result){
+    public void onTestFailure(ITestResult result) {
         Reporter.logOnFail("Test has failed");
         Reporter.logOnFail(getJSConsoleError());
 
     }
 
-    public String getJSConsoleError(){
+    public String getJSConsoleError() {
         try {
             String errorHeader = "Last console erroe is: ";
             WebDriver augmentedDriver = new Augmenter().augment(getWebDriver());
@@ -54,7 +54,7 @@ public class BaseListener implements IInvokedMethodListener, ITestListener {
         return "No errors were found";
     }
 
-    protected void makeScreenshot(String methodname, String testName, ITestResult testResult){
+    protected void makeScreenshot(String methodname, String testName, ITestResult testResult) {
         WebDriver augmentDriver = new Augmenter().augment(getWebDriver());
         File srcFile = ((TakesScreenshot) augmentDriver).getScreenshotAs(OutputType.FILE);
         DateFormat dateFormat = new SimpleDateFormat("d:MM:yyyy");
@@ -62,11 +62,11 @@ public class BaseListener implements IInvokedMethodListener, ITestListener {
         String currentDate = dateFormat.format(calendar.getTime());
         String timeIndentifier = new SimpleDateFormat("d:MM:yyyy").format(calendar.getTime());
         String fileName = methodname + timeIndentifier + ".png";
-        String fileLocation = System.getProperty("user.dir")+File.separator + "target" + File.separator + "result"+
+        String fileLocation = System.getProperty("user.dir") + File.separator + "target" + File.separator + "result"+
               File.separator + testName + File.separator + currentDate + File.separator;
         try {
             FileUtils.copyFile(srcFile, new File(fileLocation + fileName));
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
