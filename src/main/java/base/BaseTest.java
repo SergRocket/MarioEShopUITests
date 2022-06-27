@@ -28,9 +28,9 @@ import java.util.*;
 
 @Listeners({BaseListener.class})
 public class BaseTest {
-    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
-    private static ThreadLocal<ExtentTest> parentTest = new ThreadLocal<>();
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    public static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    public static ThreadLocal<ExtentTest> parentTest = new ThreadLocal<>();
+    public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     public WebDriver driver;
     private String suiteName;
     private static String env;

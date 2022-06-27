@@ -12,15 +12,16 @@ import java.util.List;
 
 public class BasePage {
 
-    protected WebDriver driver;
-    private WebDriverWait webDriverWaitLonger;
-    private WebDriverWait webDriverWaitShorter;
-    private FluentWait<WebDriver> fluentWait;
+    public WebDriver driver;
+    public WebDriverWait webDriverWaitLonger;
+    public WebDriverWait webDriverWaitShorter;
+    public FluentWait<WebDriver> fluentWait;
 
 
     public BasePage() {
         this.driver = BaseTest.getWebDriver();
         webDriverWaitLonger = new WebDriverWait(driver, Duration.ofSeconds(12));
+
         webDriverWaitShorter = new WebDriverWait(driver, Duration.ofSeconds(2));
         fluentWait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(7)).pollingEvery(Duration.ofMillis(700))
                 .ignoring(NoSuchElementException.class);
